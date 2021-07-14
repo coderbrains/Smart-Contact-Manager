@@ -14,7 +14,7 @@ public class HomeController {
 	@Autowired
 	UserRepo userRepo;
 
-	@GetMapping("/home")
+	@GetMapping("/")
 	public String home(Model model) {
 		
 		model.addAttribute("title", "Home | smartcontact manager");
