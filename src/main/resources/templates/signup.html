@@ -1,16 +1,83 @@
 <!doctype html>
-<html lang="en"  th:xmlns="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+<html lang="en" th:xmlns="http://www.thymeleaf.org"
+	th:replace="base::layout(~{::main})">
 <head>
-	<meta charset="UTF-8" />
-	<title>Document</title>
+<meta charset="UTF-8" />
+<title>Document</title>
 </head>
 <body>
-	
-	<section>
-	
-	<h1>This is the signup page.</h1>
-	
-	</section>
-	
+
+	<main>
+
+		<div class="container">
+
+			<div row="row">
+
+				<div class="col-md-6 offset-md-3 col-12">
+
+					<div class="card shadow mt-2">
+
+						<div class="text-center card-header">
+
+							<h1>
+								<i class="fa fa-user-plus"></i>Signup Here
+							</h1>
+
+						</div>
+
+						<div class="card-body">
+
+							<!-- form page starts here -->
+
+
+							<form th:action="@{/do_signup}" th:method="post">
+
+
+								<div class="form-group">
+									<label for="exampleInputEmail1">Full Name </label> <input
+										type="text" name="userName" required="required" class="form-control"
+										id="exampleInputEmail1" aria-describedby="emailHelp"
+										placeholder="Enter your good name">
+								</div>
+
+								<div class="form-group">
+									<label for="exampleInputEmail1">Email address</label> <input
+										type="email" name="email" required class="form-control"
+										id="exampleInputEmail1" aria-describedby="emailHelp"
+										placeholder="Enter email">
+								</div>
+
+								<div class="form-group">
+									<label for="exampleInputPassword1">Password</label> <input
+										type="password" required name="password" class="form-control"
+										id="exampleInputPassword1" placeholder="Password">
+								</div>
+
+							<div class="form-group">
+							
+							<textarea name="userAbout" rows="5" placeholder="Enter about yourself" class="form-control"></textarea>
+							
+							</div>
+						<div class="text-center">
+							<button type="submit" class="btn btn-primary">Signup</button>
+							<button type="reset" class="btn btn-danger">Reset</button>
+						
+						</div>
+
+
+							</form>
+						</div>
+
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</main>
+
 </body>
 </html>
