@@ -27,6 +27,9 @@ public class HomeController {
 		return "about";
 	}
 	
-	
-	
+	@GetMapping("/signup")
+	public String signup(Model model) {
+		model.addAttribute("title", "register-smartcontactmanager");
+		return "signup";
+	}
 }
