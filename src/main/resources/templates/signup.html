@@ -19,9 +19,20 @@
 
 						<div class="text-center card-header">
 
-							<h1>
-								<i class="fa fa-user-plus"></i>Signup Here
-							</h1>
+
+							<div th:if="${session.message}" th:classappend="${session.message.type}" class="alert alert-primary"
+								role="alert">
+								<p th:text="${session.message.content}"></p>
+								</div>
+								
+								<th:block th:text="${#session.removeAttribute('message')}"></th:block>
+								
+							<div>
+								<h1>
+									<i class="fa fa-user-plus"></i>Signup Here
+								</h1>
+							</div>
+
 
 						</div>
 
@@ -30,25 +41,22 @@
 							<!-- form page starts here -->
 
 
-							<form th:action="@{/do_signup}" th:method="post" th:object="@{user}">
+							<form th:action="@{/do_signup}" th:method="post"
+								th:object="${user}">
 
 
 								<div class="form-group">
 									<label for="exampleInputEmail1">Full Name </label> <input
 										type="text" name="userName" required="required"
-										th:value="@{user.userName}"
-										class="form-control" id="exampleInputEmail1"
-										aria-describedby="emailHelp"
+										th:value="${user.userName}" class="form-control"
 										placeholder="Enter your good name">
 								</div>
 
 								<div class="form-group">
 									<label for="exampleInputEmail1">Email address</label> <input
-										type="email" name="email"
-										th:value="@{user.email}"
-										 required class="form-control"
-										id="exampleInputEmail1" aria-describedby="emailHelp"
-										placeholder="Enter email">
+										type="email" name="email" th:value="${user.email}" required
+										class="form-control" id="exampleInputEmail1"
+										aria-describedby="emailHelp" placeholder="Enter email">
 								</div>
 
 								<div class="form-group">
@@ -63,15 +71,13 @@
 
 									<textarea name="userAbout" rows="5"
 										placeholder="Enter about yourself"
-										
-										th:value="@{user.userAbout}"
-										 class="form-control"></textarea>
+										th:value="${user.userAbout}" class="form-control"></textarea>
 
 								</div>
 
 
 								<div class="form-check">
-									<input name="checked" type="checkbox" class="form-check-input"
+									<input name="check" type="checkbox" class="form-check-input"
 										id="exampleCheck1"> <label class="form-check-label"
 										for="exampleCheck1">Accept the terms and conditions</label>
 								</div>
